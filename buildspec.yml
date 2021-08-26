@@ -1,0 +1,26 @@
+version: 0.1
+
+environment_variables:
+    plaintext:
+        S3_BUCKET: "angular-memory-game-deployment"
+
+phases:
+    install:
+        commands:
+            - echo Executing install
+            - npm i
+    pre_build:
+        commands:
+        - echo Executing pre_build
+    build:
+        commands:
+        - echo Build
+        - npm run build
+    post_build:
+        commands:
+        - echo Build completed on `date`
+        - aws s3 rm s3://${S3_BUCKET} --recursive
+artifacts:
+    files:
+        - '**/*'
+    base-directory: 'dist'
