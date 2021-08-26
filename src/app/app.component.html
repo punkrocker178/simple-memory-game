@@ -6,9 +6,23 @@
 <main>
 
   <div class="container">
-    <app-cards></app-cards>
+
+    <ng-container [ngSwitch]="goTo">
+
+      <ng-container *ngSwitchCase="1">
+        <app-cards [config]="gameConfig"></app-cards>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-success" (click)="play()">Play</button>
+        </div>
+        
+      </ng-container>
+
+    </ng-container>
   </div>
-  
+
   <router-outlet></router-outlet>
 </main>
 <footer></footer>

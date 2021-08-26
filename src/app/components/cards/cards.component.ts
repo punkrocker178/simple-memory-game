@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { config, interval, Subscription } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 
@@ -8,13 +8,9 @@ import { take, tap } from 'rxjs/operators';
     styleUrls: ['./cards.component.sass']
 })
 export class CardsComponent {
-    config = {
-        numPair: 6,
-        timeOut: 1200,
-        hintTime: 800
-    }
+    @Input() config: any;
 
-    countdownTimer: number = this.config.timeOut;
+    countdownTimer: number;
     countdownSubscribtion: Subscription;
 
     randomValues: number[] = [];
@@ -59,7 +55,6 @@ export class CardsComponent {
             take(this.config.timeOut),
             tap(next => {
                 this.countdownTimer = this.config.timeOut - next - 1;
-                console.log(next);
                 if (this.countdownTimer === 0 || this.randomValues.length === 0) {
                     this.countdownSubscribtion.unsubscribe();
                 }
@@ -110,7 +105,7 @@ export class CardsComponent {
                 this.card2 = null;
                 this.bothCardIsClicked = false;
                 this.selectedIndexes.fill(false);
-            }, this.config.hintTime);
+            }, this.config.hintTime * 1000);
         }
 
     }
