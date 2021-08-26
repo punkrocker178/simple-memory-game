@@ -1,8 +1,11 @@
 # FindPairsGame
 
 ## How to play
+
 You flip card to reveal it's value, you can flip up to 2 cards in 1 turn to find the matching pair.  
-If a pair does not match, it will flipped down again. You have to clear all the cards before the time runs out.
+If a pair does not match, it will flipped down again. You have to clear all the cards before the time runs out.  
+App: <https://d1gw7dc6hb02h.cloudfront.net/>
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
