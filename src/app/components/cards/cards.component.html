@@ -10,16 +10,14 @@
         </div>
     </ng-container>
 
-    <div *ngIf="countdownTimer === 0 && randomValues.length > 0">
+    <div *ngIf="countdownTimer === 0 && randomValues.length > 0" class="text-center">
         <h5>You lose!</h5>
         <button class="btn btn-primary" (click)="tryAgain()">Try Again?</button>
     </div>
 
-    <div *ngIf="randomValues.length === 0">
+    <div *ngIf="randomValues.length === 0" class="text-center">
         <h5>You Win!</h5>
         <button class="btn btn-primary" (click)="tryAgain()">Play Again</button>
     </div>
 
-
-    
 </div>

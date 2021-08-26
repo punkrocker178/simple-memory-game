@@ -1,7 +1,8 @@
 # FindPairsGame
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
-
+## How to play
+You flip card to reveal it's value, you can flip up to 2 cards in 1 turn to find the matching pair.  
+If a pair does not match, it will flipped down again. You have to clear all the cards before the time runs out.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
