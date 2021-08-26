@@ -2,7 +2,7 @@ version: 0.1
 
 environment_variables:
     plaintext:
-        S3_BUCKET: "angular-memory-game-deployment"
+        S3_BUCKET: "angular-apps-deployment"
 
 phases:
     install:
