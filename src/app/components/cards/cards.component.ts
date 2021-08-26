@@ -9,8 +9,8 @@ import { take, tap } from 'rxjs/operators';
 })
 export class CardsComponent {
     config = {
-        numPair: 5,
-        timeOut: 10,
+        numPair: 6,
+        timeOut: 1200,
         hintTime: 800
     }
 
@@ -27,10 +27,14 @@ export class CardsComponent {
     selectedIndexes: boolean[];
 
     ngOnInit() {
-        this.startCountdown();
+        this.startGame();
+    }
 
+    startGame() {
+        this.startCountdown();
         let i = 0;
         let tmpArr = [];
+        this.randomValues = [];
 
         // Randomize initial array values
         while (i < this.config.numPair) {
@@ -44,11 +48,10 @@ export class CardsComponent {
         this.randomValues = this.randomValues.concat(tmpArr);
 
         // Shuffle array
-        this.randomValues = this.shuffleArray(this.randomValues);
+        this.randomValues = this.shuffleArray(this.randomValues.sort());
 
         this.selectedIndexes = new Array(this.randomValues.length);
         this.selectedIndexes.fill(false);
-
     }
 
     startCountdown() {
@@ -75,7 +78,6 @@ export class CardsComponent {
         return arr;
     }
 
-    /* I need more time to handle this function as it contains a lot of bugs */
     cardClicked(value: any) {
 
         this.selectedIndexes[value.index] = !this.selectedIndexes[value.index];
@@ -109,12 +111,11 @@ export class CardsComponent {
                 this.bothCardIsClicked = false;
                 this.selectedIndexes.fill(false);
             }, this.config.hintTime);
-
         }
 
     }
 
     tryAgain() {
-        this.startCountdown();
+        this.startGame();
     }
 }

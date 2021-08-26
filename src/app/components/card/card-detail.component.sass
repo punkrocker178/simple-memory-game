@@ -4,6 +4,12 @@
     flex-direction: column
     align-items: center
     justify-content: center
+    cursor: pointer
+    transition: ease 0.3s
+    transform: rotate3d(0, 1, 0, 180deg)
+
+.custom-card.clicked
+    transform: rotate3d(0, 1, 0, 0deg)
 
 .cards-container
     display: flex
