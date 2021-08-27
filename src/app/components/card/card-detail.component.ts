@@ -9,6 +9,7 @@ export class CardDetailComponent {
 
     @Input() index: number;
     @Input() value: number | string;
+    @Input() value2: string;
     @Input() isRevealed: boolean;
 
     @Output() clicked: EventEmitter<any> = new EventEmitter();

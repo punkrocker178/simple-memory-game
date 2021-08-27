@@ -1,7 +1,8 @@
 <div class="card custom-card" [ngClass]="{'clicked': isRevealed}" (click)="reveal()">
 
-    <ng-container >
-        <span *ngIf="isRevealed" class="me-2">{{value}}</span>
+    <ng-container *ngIf="isRevealed">
+        <span  class="me-2">{{value}}</span>
+        <span  class="me-2">{{value2}}</span>
     </ng-container>
     
 </div>

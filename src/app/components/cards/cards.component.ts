@@ -14,6 +14,7 @@ export class CardsComponent {
     countdownSubscribtion: Subscription;
 
     randomValues: number[] = [];
+    verbArr = ['apple', 'bee', 'cat' , 'dog', 'ear'];
     map = new Map();
 
     card1: any;
@@ -31,12 +32,21 @@ export class CardsComponent {
         let i = 0;
         let tmpArr = [];
         this.randomValues = [];
-
         // Randomize initial array values
         while (i < this.config.numPair) {
-            const random = 1 + Math.floor(Math.random() * this.config.numPair * 2);
-            tmpArr.push(random);
-            i++;
+            const random = 1 + Math.floor(Math.random() * this.config.numPair);
+            let isRandomExist = false;
+            for (let i = 0; i < tmpArr.length; i++) {
+                if (random === tmpArr[i]) {
+                    isRandomExist = true;
+                }
+            }
+
+            if (!isRandomExist) {
+                tmpArr.push(random);
+                i++;
+            }
+            
         }
 
         // Create pair

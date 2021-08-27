@@ -12,8 +12,8 @@ export class AppComponent {
 
   ngOnInit() {
     this.gameConfig = {
-      numPair: 6,
-      timeOut: 45,
+      numPair: 5,
+      timeOut: 1200,
       hintTime: 0.7
     }
   }
