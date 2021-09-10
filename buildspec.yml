@@ -3,6 +3,7 @@ version: 0.1
 environment_variables:
     plaintext:
         S3_BUCKET: "angular-apps-deployment"
+        APP: "/dist/find-pairs-game"
 
 phases:
     install:
@@ -19,7 +20,7 @@ phases:
     post_build:
         commands:
         - echo Build completed on `date`
-        - aws s3 rm s3://${S3_BUCKET} --recursive
+        - aws s3 rm s3://${S3_BUCKET}${APP} --recursive
 artifacts:
     files:
         - '**/*'
